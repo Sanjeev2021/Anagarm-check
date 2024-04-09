@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagram Check</title>
+    <script src="anagram.js"></script>
+    <link rel="stylesheet" href="anagram.css">
+</head>
+<body>
+    <form id="anagramForm">
+        <label for = "word1">Enter your first word</label>
+        <input type="text" id="word1" name="word1"><br>
+        <label for = "word2">Enter your second word</label>
+        <input type="text" id="word2" name="word2"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <p id="result"></p>
+</body>
+<script>
+    const form = document.getElementById("anagramForm");
+    if (form){
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); 
+
+      const word1 = document.getElementById("word1").value;
+      const word2 = document.getElementById("word2").value;
+
+      const result = areAnagram(word1, word2); // Call the anagram checking function
+      const resultElement = document.getElementById("result");
+    //   resultElement.textContent = result ? "It is an anagaram" : "It is not an anagram";
+      if (result) {
+        resultElement.textContent = "Words are anagram";
+        resultElement.style.color = "green"; 
+      } else {
+        resultElement.textContent = "Words are not anagarm";
+        resultElement.style.color = "red"; 
+      }
+    })};
+  </script>
+</html>
